@@ -1,9 +1,206 @@
 @charset "utf-8";
+/* at-rule */
 @import "./reset.css";
+
+:root {
+    --default-width: 1000px;
+    --base-size:1.5rem
+}
+html{
+    font-size: 20px;
+}
 body {
     font: normal 14px/1.5 "Nanum Gothic", "Noto Sans KR", sans-serif;
     color: #666;
 }
-.text-cap{
+
+.text-cap {
     text-transform: capitalize;
 }
+
+/* header */
+.header-main {
+    background: rgba(32, 14, 37, .7);
+    font-size: 0;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.main-wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    height: 80px;
+    justify-content: space-between;
+    align-items: center;
+    /* flex-item 전체 적용 속성 */
+}
+
+.main-wrap #gnb {
+    display: flex;
+    gap: 1.5rem;
+}
+
+#gnb li a {
+    color: #d6d6d6;
+    font-size: 15px;
+    text-transform: uppercase
+}
+
+.main-wrap .main-links {
+    display: flex;
+    gap: 1.25rem;
+}
+
+.main-links a {
+    font-size: 13px;
+    color: #d6d6d6;
+    text-transform: uppercase
+}
+
+.main-links div:nth-child(1)::before {
+    content: "";
+    display: inline-block;
+    width: 34px;
+    height: 33px;
+    background: url("../images/topicon.png") no-repeat center;
+    vertical-align: middle;
+}
+
+.main-links div:nth-child(2),
+.main-links div:nth-child(3) {
+    align-self: center;
+    /* flex-item 개별 적용 속성 */
+}
+
+.header-sub {
+    height: 835px;
+    background: url("../images/visual_bg.jpg") no-repeat center / cover;
+}
+
+.sub-wrap {
+    max-width: var(--default-width);
+    height: 755px;
+    padding: 80px 0 0 0;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sub-text {
+    animation-name: scale-up-down;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    /* animation: 1s scale-up-down alternate infinite ease-in-out; */
+
+}
+
+.sub-promotion {
+    position: absolute;
+    right: 0;
+    bottom: -70px;
+}
+
+@keyframes scale-up-down {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.2);
+    }
+}
+/* sectio.main */
+
+.main article:nth-of-type(1){
+    background: url("../images/promotion_bg.gif");
+    overflow: hidden;
+    padding: 0 0 70px 0;
+}
+.article-title {
+    margin: 100px 0 0 0;
+    padding: 0 0 20px 0;
+    font-size: var(--base-size)
+}
+.text-center{
+    text-align: center;
+}
+.container{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+.container-fluid{
+    width: 100%;
+}
+.promo_list, .cards_list, .video_list{
+    display: flex;
+    justify-content: space-between;
+}
+.cards_list > div, .video_list > li{
+    position: relative;
+}
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.cards_list > div:hover .cover, .video_list > li:hover .cover{
+    display: block;
+}
+.d-none + .container-fluid{
+    background: #000;
+    margin: 50px 0;
+}
+aside .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+aside .container-fluid{
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.sns ul {
+    display: flex;
+    gap: 10px;
+    height: 50px;
+    align-items: center;
+    font-size: 0;
+}
+.docs a:nth-child(1){
+    padding: 0 0 0 20px;
+    background: url("../images/footer_icon1.png") no-repeat 0 0;
+}
+.docs a:nth-child(2){
+    margin: 0 0 0 10px;
+    padding: 0 0 0 20px;
+    background: url("../images/footer_icon2.png") no-repeat 0 0;
+}
+/*.docs a:nth-child(1)::before{
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 15px;
+    background: url("../images/footer_icon1.png");
+    position: relative;
+    top: 5px;
+}*/
+.extra-links ul{
+    display: flex;
+    gap: 10px;
+}
+.extra-links ul li::after{
+    content: '|';
+    margin: 0 10px;
+}
+.extra-links ul li::nth-last-child(1)::after{
+    content: "";
+}
+
+
+
